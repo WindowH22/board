@@ -1,5 +1,6 @@
 package com.fastcampus.board.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 //@WebMvcTest :  컨트롤러외에 빈들은 로드하지 않기때문에 DataRest에 autoConfiguration을 읽지 않은것이다. -> 인테그레이션 하기위해 springBootTest를 쓴다.
 
+
+@Disabled("Spring Data Rest 통합 테스트는 불필요하므로 제외시킴")
 @DisplayName("DataRest테스트")
 @Transactional
 @AutoConfigureMockMvc
