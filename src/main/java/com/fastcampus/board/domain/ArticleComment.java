@@ -1,14 +1,11 @@
 package com.fastcampus.board.domain;
 
-import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
@@ -26,7 +23,7 @@ public class ArticleComment extends AuditingFields{
     private Article article; // 게시글(ID)
     @Setter @Column(nullable = false, length = 500)
     private String content; // 내용
-    
+
     private ArticleComment() {
     }
 
