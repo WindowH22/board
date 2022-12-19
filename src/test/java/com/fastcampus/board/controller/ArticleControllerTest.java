@@ -33,7 +33,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles"));
 
     }
-    @Disabled("개발 중")
+
     @DisplayName("[view][GET] 게시글  (단일) 페이지 - 정상 호출")
     @Test
     void givenNothing_whenRequestingArticleView_thenReturnsArticleView() throws Exception {
@@ -48,7 +48,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articleComments"));
 
     }
-    @Disabled("개발 중")
+
     @DisplayName("[view][GET] 게시글 검색 페이지 - 정상 호출")
     @Test
     void givenNothing_whenRequestingArticlesSearchView_thenReturnsArticlesSearchView() throws Exception {
