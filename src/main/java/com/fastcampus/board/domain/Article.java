@@ -26,6 +26,10 @@ public class Article extends AuditingFields{
     // setter를 따로 주는 이유는 자동으로 주는 값에 대해 인위적인 변경을 막기위함
     @Setter @Column(nullable = false)
     private String title; // 제목
+    @Setter
+    @JoinColumn(name = "userId")
+    @ManyToOne(optional = false)
+    private UserAccount userAccount; // 유저 정보 (ID)
     @Setter @Column(nullable = false, length = 10000)
     private String content; // 내용
     @Setter private String hashtag; // 해시태그
@@ -37,14 +41,14 @@ public class Article extends AuditingFields{
 
     protected Article(){}
 
-    private Article(String title, String content, String hashtag) {
+    private Article(UserAccount userAccount, String title, String content) {
+        this.userAccount = userAccount;
         this.title = title;
         this.content = content;
-        this.hashtag = hashtag;
     }
 
-    public static Article of(String title, String content, String hashtag){
-        return new Article(title,content,hashtag);
+    public static Article of(UserAccount userAccount, String title, String content) {
+        return new Article(userAccount, title, content);
     }
 
     //list로 데이터 받을 때 비교성 검사 (id가 유니크 값이기 때문에 id값사용

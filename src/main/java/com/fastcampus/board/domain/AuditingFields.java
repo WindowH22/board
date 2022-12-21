@@ -1,5 +1,6 @@
 package com.fastcampus.board.domain;
 
+import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
@@ -15,7 +16,7 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 
-@Setter
+@Getter
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass

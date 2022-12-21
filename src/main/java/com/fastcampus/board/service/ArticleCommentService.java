@@ -1,7 +1,6 @@
 package com.fastcampus.board.service;
 
 import com.fastcampus.board.dto.ArticleCommentDto;
-import com.fastcampus.board.dto.ArticleCommentUpdateDto;
 import com.fastcampus.board.repository.ArticleCommentRepository;
 import com.fastcampus.board.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;

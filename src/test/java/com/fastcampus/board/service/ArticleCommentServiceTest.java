@@ -1,11 +1,10 @@
+/*
 package com.fastcampus.board.service;
 
 import com.fastcampus.board.config.SecurityConfig;
 import com.fastcampus.board.domain.Article;
 import com.fastcampus.board.domain.ArticleComment;
 import com.fastcampus.board.dto.ArticleCommentDto;
-import com.fastcampus.board.dto.ArticleCommentUpdateDto;
-import com.fastcampus.board.dto.ArticleUpdateDto;
 import com.fastcampus.board.repository.ArticleCommentRepository;
 import com.fastcampus.board.repository.ArticleRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -90,4 +89,4 @@ class ArticleCommentServiceTest {
         //Then
         then(articleCommentRepository).should().delete(any(ArticleComment.class));
     }
-}
+}*/
