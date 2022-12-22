@@ -25,9 +25,9 @@ public class ArticleCommentService {
     public void saveArticleComment(ArticleCommentDto dto) {
     }
 
-    public void updateArticleComment(long l, ArticleCommentUpdateDto content) {
+    public void updateArticleComment(ArticleCommentDto dto) {
     }
 
-    public void deleteArticleComments(long l) {
+    public void deleteArticleComments(long articleCommentId) {
     }
 }
