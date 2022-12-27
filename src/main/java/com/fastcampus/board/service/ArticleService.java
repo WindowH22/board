@@ -67,7 +67,7 @@ public class ArticleService {
             Article article = articleRepository.getReferenceById(articleId);
             //not null 필드이기에 방어로직 형성
             if (dto.title() != null) article.setTitle(dto.title());
-            if (dto.content() != null) article.setHashtag(dto.hashtag());
+            if (dto.content() != null) article.setContent(dto.content());
             article.setHashtag(dto.hashtag());
         } catch (EntityNotFoundException e){
             log.warn("게시글 업데이트 실패. 게시글을 찾을 수 없습니다. - dto: {}", dto);
