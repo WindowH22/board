@@ -1,20 +1,23 @@
 package com.fastcampus.board.repository;
 
-import com.fastcampus.board.config.JpaConfig;
 import com.fastcampus.board.domain.Article;
 import com.fastcampus.board.domain.UserAccount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.util.List;
+import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("JPA 연결 테스트")
-@Import(JpaConfig.class) // import 해주지 않으면 jpaauditing을 읽지 못한다.
+@Import(JpaRepositoryTest.TestJpaConfig.class) // import 해주지 않으면 jpaauditing을 읽지 못한다.
 @DataJpaTest
 class JpaRepositoryTest {
 
@@ -102,5 +105,14 @@ class JpaRepositoryTest {
         //Then
         assertThat(articleRepository.count()).isEqualTo(previousArticleCount-1);
         assertThat(articleCommentRepository.count()).isEqualTo(previousArticleCommentCount-deletedCommentsSize);
+    }
+
+    @EnableJpaAuditing
+    @TestConfiguration
+    public static class TestJpaConfig{
+        @Bean
+        public AuditorAware<String> auditorAware() {
+            return () -> Optional.of("uno");
+        }
     }
 }
